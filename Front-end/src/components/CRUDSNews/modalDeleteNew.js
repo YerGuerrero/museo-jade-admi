@@ -12,6 +12,12 @@ const ModalDeleteNews = () => {
             modalDeleteNews.style.visibility="visible";                    
         };       
         document.addEventListener('deleteModalNews', callback);
+        
+        const callbackClose = (e) => { 
+          const modalDeleteNews= document.getElementById("modalDeleteNews");
+          modalDeleteNews.style.visibility="hidden";                    
+        };       
+        document.addEventListener('closeDeleteModal', callbackClose);
       })
 
       function close() {
@@ -32,6 +38,8 @@ const ModalDeleteNews = () => {
           };
           fetch('http://localhost:5000/post_deleteNews', requestOptions)
             .then(response => response.json())
+          
+          document.dispatchEvent(new CustomEvent("closeDeleteModal"))
         };
 
         

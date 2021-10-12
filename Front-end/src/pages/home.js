@@ -7,46 +7,38 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 const HomeAdmin = () => {
 
-    const HandleCreate=(event)=>{
+    const HandleEvent=(event)=>{
         document.dispatchEvent(new CustomEvent(event))
     }
-    const HandleDelete=(event)=>{
-        document.dispatchEvent(new CustomEvent(event))
-    }
-    const HandleUpdate=(event)=>{
-        document.dispatchEvent(new CustomEvent(event))
-    }
-    const HandleRead=(event)=>{
-        document.dispatchEvent(new CustomEvent(event))
-    }
+
     
     return(
         <div className= "homeContainer">
             <img className= "logoHomeAdmin" src="/img/logo.png" alt="Logo Museo del Jade"/>
             <div className= "section" id= "eventos">
                 <div className= "title">
-                    <h2> Sección Eventos </h2>
+                    <h2> Sección Noticias </h2>
                 </div>
                 <div className= "buttonContainer">
-                    <div id="create" className= "button" onClick={()=>{HandleCreate("createModalNews")}}> 
+                    <div id="create" className= "button" onClick={()=>{HandleEvent("createModalNews")}}> 
                         <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
                         <div className="buttonName"> 
                             <p> Crear </p>
                         </div>
                     </div>
-                    <div id="edit" className= "button" onClick={()=>{HandleCreate("updateModalNews")}}> 
+                    <div id="edit" className= "button" onClick={()=>{HandleEvent("updateModalNews")}}> 
                         <FontAwesomeIcon className="buttonIcon2" icon={faEdit}/>
                         <div className="buttonName"> 
                             <p> Modificar </p>
                         </div>
                     </div>
-                    <div id="delete" className= "button" onClick={()=>{HandleCreate("deleteModalNews")}}>
+                    <div id="delete" className= "button" onClick={()=>{HandleEvent("deleteModalNews")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faTrashAlt}/>
                         <div className="buttonName"> 
                             <p> Borrar </p>
                         </div>
                     </div>
-                    <div id="read" className= "button" onClick={()=>{HandleCreate("readModalNews")}}>
+                    <div id="read" className= "button" onClick={()=>{HandleEvent("readModalNews")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
                         <div className="buttonName"> 
                             <p> Consultar </p>
@@ -56,7 +48,7 @@ const HomeAdmin = () => {
             </div>
             <div className= "section" id= "noticias">
                 <div className= "title">
-                    <h2> Sección Noticias </h2>
+                    <h2> Sección Eventos </h2>
                 </div>
                 <div className= "buttonContainer">
                     <div id="create" className= "button"> 
