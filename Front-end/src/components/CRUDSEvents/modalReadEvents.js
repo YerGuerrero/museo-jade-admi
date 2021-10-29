@@ -1,18 +1,18 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import TableNews from "../tableNews";
+import TableEvents from "../tableEvents.js";
 
 
-class ModalReadNews extends React.Component {
+class ModalReadEvents extends React.Component {
 
     constructor(props){
         super(props);
         this.state=null;
     }
 
-    ReadNews() {
-        fetch('http://localhost:5000/read_news')
+    ReadEvents() {
+        fetch('http://localhost:5000/read_events')
           .then(response => response.json())
           .then(result => {
             this.setState({
@@ -20,41 +20,44 @@ class ModalReadNews extends React.Component {
                 id: item[0],
                 titulo: item[1],
                 imagen: item[2],
-                descripcion: item[3],
+                fecha: item[3],
+                hora: item[4],
+                descripcion: item[5],
               }))
             });
         });
       }
     
     close() {
-    const modalReadNews= document.getElementById("modalReadNews");
-    modalReadNews.style.visibility="hidden";
+    const modalReadEvents= document.getElementById("modalReadEvents");
+    modalReadEvents.style.visibility="hidden";
     };
 
     componentDidMount(){
     const callback = (e) => { 
-        this.ReadNews();
-        const modalReadNews= document.getElementById("modalReadNews");
-        modalReadNews.style.visibility="visible";                    
+        this.ReadEvents();
+        const modalReadEvents= document.getElementById("modalReadEvents");
+        modalReadEvents.style.visibility="visible";
+
     };       
-    document.addEventListener('readModalNews', callback);
+    document.addEventListener('readModalEvents', callback);
     
     }
 
     render() {
         return (
-            <div id="modalReadNews" className="modalContainer">
+            <div id="modalReadEvents" className="modalContainer" style={{width: "80%"}}>
                 <button id ="btnClose" className="btnClose" onClick={this.close}><FontAwesomeIcon icon={faTimes}/></button>
                 <div id= "info" >
-                    <h1>Tabla noticias</h1>
+                    <h1>Tabla eventos</h1>
                 </div> 
-                <TableNews news= {this.state}/>
+                <TableEvents events= {this.state}/>
             </div>
             
         );
     }
 };
 
-export default ModalReadNews;
+export default ModalReadEvents;
 
 

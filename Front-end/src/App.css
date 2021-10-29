@@ -43,7 +43,7 @@
     background-color: white;
     height: 37em;
     position: absolute;
-    top: 57%;
+    top: 117%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 3em;
@@ -336,7 +336,7 @@
 .table{
     border-collapse: collapse;
     border-spacing: 0;
-    width: 85%;
+    width: 90%;
     font-size: 1em;
     border: solid;
     padding: -2em;
@@ -345,6 +345,121 @@
     border-radius: 1em;
     display: inline-block;
     margin-bottom: 3em;
-    height: 50em;
+    height: 38em;
     overflow-y: auto;
 }
+
+#modalCreateEvents{
+  z-index: 91;
+  top: 50%;
+}
+
+#modalCreateEvents #info{
+  text-align: -webkit-center;
+}
+
+#modalCreateEvents #info h1{
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+#modalCreateEvents #info #info1{
+  display: inline-flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  place-content: space-between;
+}
+
+#modalCreateEvents #info #info1 #newsImage{
+  margin-left: 5%;
+}
+#modalCreateEvents textarea{
+  width: 85%;
+ height: 15em;
+ border-radius: 8px;
+  border: solid;
+  border-width: thin;
+ border-color: #646566;
+ color: #202945;
+ margin-bottom: 1em;
+  display: block;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 16px;
+  font-family: sans-serif;
+  padding-top: 1em;
+}
+
+#modalUpdateEvents #info{
+  text-align: -webkit-center;
+}
+
+#modalUpdateEvents #info h1{
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+#modalUpdateEvents #info #info1{
+  display: inline-flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  place-content: space-between;
+}
+
+#modalUpdateEvents #info #info1 #newsImage{
+  margin-left: 5%;
+}
+
+.tableEvent .labels{
+  border-bottom: solid;
+  border-color: #324D51;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  justify-content: start;
+}
+
+.tableEvent tr{
+width: 100%;
+display: inline-flex;
+border-bottom: solid;
+border-width: 1px;
+border-color: silver;
+
+}
+
+
+.titleTable{
+width: 20%;
+height: 5em;
+overflow-y: auto;
+display: -webkit-box;
+text-align: justify;
+padding: 13px;
+}
+
+.descriptionTableEvent{
+  width: 35%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+
+}
+
+.dateTable{
+  width: 10%;
+  height: 5em;
+  padding: 13px;
+  text-align: center;
+}
+
+.hourTable{
+  width: 10%;
+  height: 5em;
+  padding: 13px;
+  text-align: center;
+}
+

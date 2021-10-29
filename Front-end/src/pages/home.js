@@ -15,7 +15,7 @@ const HomeAdmin = () => {
     return(
         <div className= "homeContainer">
             <img className= "logoHomeAdmin" src="/img/logo.png" alt="Logo Museo del Jade"/>
-            <div className= "section" id= "eventos">
+            <div className= "section" id= "noticias">
                 <div className= "title">
                     <h2> Sección Noticias </h2>
                 </div>
@@ -46,30 +46,30 @@ const HomeAdmin = () => {
                     </div>
                 </div>
             </div>
-            <div className= "section" id= "noticias">
+            <div className= "section" id= "eventos">
                 <div className= "title">
                     <h2> Sección Eventos </h2>
                 </div>
                 <div className= "buttonContainer">
-                    <div id="create" className= "button"> 
+                    <div id="create" className= "button" onClick={()=>{HandleEvent("createModalEvents")}}> 
                         <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
                         <div className="buttonName"> 
                             <p> Crear </p>
                         </div>
                     </div>
-                    <div id="edit" className= "button"> 
+                    <div id="edit" className= "button" onClick={()=>{HandleEvent("updateModalEvents")}}> 
                         <FontAwesomeIcon className="buttonIcon2" icon={faEdit}/>
                         <div className="buttonName"> 
                             <p> Modificar </p>
                         </div>
                     </div>
-                    <div id="delete" className= "button">
+                    <div id="delete" className= "button" onClick={()=>{HandleEvent("deleteModalEvents")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faTrashAlt}/>
                         <div className="buttonName"> 
                             <p> Borrar </p>
                         </div>
                     </div>
-                    <div id="read" className= "button">
+                    <div id="read" className= "button" onClick={()=>{HandleEvent("readModalEvents")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
                         <div className="buttonName"> 
                             <p> Consultar </p>
