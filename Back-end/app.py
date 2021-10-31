@@ -57,6 +57,30 @@ def post_updateEvents():
     update_events(json.loads(request.data))
     return jsonify({"step": "1"})
 
+@app.route('/read_tours', methods=['GET'])
+def read_tours():
+    meta = read_tours()
+    response = jsonify(meta)
+    return response
+
+@app.route('/post_createTours', methods=['POST'])
+def post_createTours():
+    print (json.loads(request.data))
+    insert_events(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_deleteTours', methods=['POST'])
+def post_deleteTours():
+    print (json.loads(request.data))
+    delete_events(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_updateTours', methods=['POST'])
+def post_updateTours():
+    print (json.loads(request.data))
+    update_events(json.loads(request.data))
+    return jsonify({"step": "1"})
+
 
 dbconn = {'database': 'museojadedb',
           'user': 'admin',
@@ -153,6 +177,50 @@ def update_events(data):
                                                     
             )) AS subquery
             WHERE eventos.id = subquery.id"""
+    print(sql)
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def read_tours():
+    sql = """SELECT id, titulo, descripcion, urltour, imagen 
+ FROM public.tourvirtual;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    return data
+
+def insert_tours(data):
+    sql = """INSERT INTO public.tourvirtual (titulo, descripcion, urltour, imagen)
+            SELECT titulo, descripcion, urltour, imagen
+            FROM json_to_recordset(%s) x (titulo varchar(200),
+                                          descripcion varchar(500), 
+                                          urltour varchar(500),
+                                          imagen varchar(500),
+            )
+        """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def delete_tours(data):
+    sql = """DELETE FROM public.tourvirtual 
+            WHERE id= (SELECT id FROM json_to_recordset(%s) x (id int)) """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def update_tours(data):
+    sql = """UPDATE public.tourvirtual 
+            SET titulo = subquery.titulo,
+                descripcion = subquery.descripcion,
+                urltour = subquery.urltour,
+                imagen = subquery.imagen,
+            FROM (SELECT id, titulo, descripcion, urltour, imagen
+                    FROM json_to_recordset(%s) x (  id int,
+                                                    titulo varchar(200),
+                                                    descripcion varchar(500), 
+                                                    urltour varchar(500),
+                                                    imagen varchar(500),
+                                                    
+            )) AS subquery
+            WHERE tourvirtual.id = subquery.id"""
     print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()

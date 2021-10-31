@@ -82,7 +82,7 @@ const HomeAdmin = () => {
                     <h2> Sección Servicios </h2>
                 </div>
                 <div className= "buttonContainer">
-                    <div id="create" className= "button"> 
+                    <div id="create" className= "button" > 
                         <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
                         <div className="buttonName"> 
                             <p> Crear </p>
@@ -113,25 +113,25 @@ const HomeAdmin = () => {
                     <h2> Sección Tours Virtuales </h2>
                 </div>
                 <div className= "buttonContainer">
-                    <div id="create" className= "button"> 
+                    <div id="create" className= "button" onClick={()=>{HandleEvent("createModalTours")}}> 
                         <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
                         <div className="buttonName"> 
                             <p> Crear </p>
                         </div>
                     </div>
-                    <div id="edit" className= "button"> 
+                    <div id="edit" className= "button" onClick={()=>{HandleEvent("updateModalTours")}}> 
                         <FontAwesomeIcon className="buttonIcon2" icon={faEdit}/>
                         <div className="buttonName"> 
                             <p> Modificar </p>
                         </div>
                     </div>
-                    <div id="delete" className= "button">
+                    <div id="delete" className= "button" onClick={()=>{HandleEvent("deleteModalTours")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faTrashAlt}/>
                         <div className="buttonName"> 
                             <p> Borrar </p>
                         </div>
                     </div>
-                    <div id="read" className= "button">
+                    <div id="read" className= "button" onClick={()=>{HandleEvent("readModalTours")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
                         <div className="buttonName"> 
                             <p> Consultar </p>

@@ -347,6 +347,7 @@
     margin-bottom: 3em;
     height: 38em;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #modalCreateEvents{
@@ -391,16 +392,16 @@
   padding-top: 1em;
 }
 
-#modalUpdateEvents #info{
+ #info{
   text-align: -webkit-center;
 }
 
-#modalUpdateEvents #info h1{
+#info h1{
     margin-top: 0;
     margin-bottom: 1em;
 }
 
-#modalUpdateEvents #info #info1{
+ #info1{
   display: inline-flex;
   width: 90%;
   margin-left: 5%;
@@ -408,7 +409,7 @@
   place-content: space-between;
 }
 
-#modalUpdateEvents #info #info1 #newsImage{
+#info1 #newsImage{
   margin-left: 5%;
 }
 
@@ -428,6 +429,15 @@ border-width: 1px;
 border-color: silver;
 
 }
+
+.tableTours tr{
+  width: 100%;
+  display: inline-flex;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: silver;
+  
+  }
 
 
 .titleTable{
@@ -463,3 +473,37 @@ padding: 13px;
   text-align: center;
 }
 
+.descriptionTableTour{
+  width: 25%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+
+}
+.urlTable{
+  width: 10%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+  }
+
+.tableTours .labels{
+  border-bottom: solid;
+  border-color: #324D51;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  justify-content: start;
+}
+
+.titleTableTours{
+  width: 10%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}

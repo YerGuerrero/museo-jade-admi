@@ -10,6 +10,10 @@ import ModalCreateEvents from './components/CRUDSEvents/modalCreateEvents';
 import ModalDeleteEvents from './components/CRUDSEvents/modalDeleteEvent';
 import ModalUpdateEvents from './components/CRUDSEvents/modalUpdateEvents';
 import ModalReadEvents from './components/CRUDSEvents/modalReadEvents';
+import ModalCreateTours from './components/CRUDSTours/modalCreateTours';
+import ModalDeleteTours from './components/CRUDSTours/modalDeleteTours';
+import ModalUpdateTours from './components/CRUDSTours/modalUpdateTours';
+import ModalReadTours from './components/CRUDSTours/modalReadTours';
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +36,10 @@ function App() {
                 <ModalDeleteEvents/>
                 <ModalUpdateEvents/>
                 <ModalReadEvents/>
+                <ModalCreateTours/>
+                <ModalDeleteTours/>
+                <ModalUpdateTours/>
+                <ModalReadTours/>
                 <HomeAdmin/>
             </Route>
             <Route exact path="/">

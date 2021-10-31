@@ -57,9 +57,9 @@ const ModalUpdateEvents = () => {
             <div id= "info" >
                 <h1>Modificar evento</h1>
                 <div id="info1">
-                <input type="text" id="eventsName" placeholder="Titulo del evento" onInput={(e) => {setTitleEvents(e.target.value)}}></input><br></br>
-                <input type="text" id="eventsImage" placeholder="Ruta de la imagen" onInput={(e) => {setImageEvents(e.target.value)}}></input><br></br>
-            </div>
+                  <input type="text" id="eventsName" placeholder="Titulo del evento" onInput={(e) => {setTitleEvents(e.target.value)}}></input><br></br>
+                  <input type="text" id="eventsImage" placeholder="Ruta de la imagen" onInput={(e) => {setImageEvents(e.target.value)}}></input><br></br>
+                </div>
             <div id="info1">
                 <input type="text" id="eventsDate" placeholder="Fecha del evento, formato: 01/01/2000" maxLength="10" onInput={(e) => {setDateEvents(e.target.value)}}></input><br></br>
                 <input type="text" id="eventsHour" placeholder="Hora del evento, formato: 10:00 a.m." maxLength="10" onInput={(e) => {setHourEvents(e.target.value)}}></input><br></br>
