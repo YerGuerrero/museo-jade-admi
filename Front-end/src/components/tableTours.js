@@ -11,7 +11,7 @@ const TableTours= (props)=>{
                         <th style={{width:"16%"}} className= "text-center">Título</th>
                         <th style={{width:"21%"}} className= "text-center">Descripción</th>
                         <th style={{width:"19%",marginLeft:"-0.5em"}} className= "text-center">URL tour </th>
-                        <th style={{width:"9%",marginLeft:"-0.5em"}} className= "text-center">URl imagen</th>
+                        <th style={{width:"9%",marginLeft:"-0.5em"}} className= "text-center">URL imagen</th>
                     </tr>
                 </thead>
                 <tbody>

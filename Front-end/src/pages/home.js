@@ -77,30 +77,61 @@ const HomeAdmin = () => {
                     </div>
                 </div>
         </div>
-        <div className= "section" id= "servicios">
+        <div className= "section" id= "obras">
                 <div className= "title">
-                    <h2> Sección Servicios </h2>
+                    <h2> Sección obras </h2>
                 </div>
                 <div className= "buttonContainer">
-                    <div id="create" className= "button" > 
+                    <div id="create" className= "button" onClick={()=>{HandleEvent("createModalArtwork")}}> 
                         <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
                         <div className="buttonName"> 
                             <p> Crear </p>
                         </div>
                     </div>
-                    <div id="edit" className= "button"> 
+                    <div id="edit" className= "button" onClick={()=>{HandleEvent("updateModalArtwork")}}> 
                         <FontAwesomeIcon className="buttonIcon2" icon={faEdit}/>
                         <div className="buttonName"> 
                             <p> Modificar </p>
                         </div>
                     </div>
-                    <div id="delete" className= "button">
+                    <div id="delete" className= "button" onClick={()=>{HandleEvent("deleteModalArtwork")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faTrashAlt}/>
                         <div className="buttonName"> 
                             <p> Borrar </p>
                         </div>
                     </div>
-                    <div id="read" className= "button">
+                    <div id="read" className= "button" onClick={()=>{HandleEvent("readModalArtwork")}}>
+                        <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
+                        <div className="buttonName"> 
+                            <p> Consultar </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div className= "section" id= "exhibiciones">
+                <div className= "title">
+                    <h2> Sección Exhibiciones </h2>
+                </div>
+                <div className= "buttonContainer">
+                    <div id="create" className= "button" onClick={()=>{HandleEvent("createModalExhibitions")}}> 
+                        <FontAwesomeIcon className="buttonIcon" icon={faPlusCircle}/>
+                        <div className="buttonName"> 
+                            <p> Crear </p>
+                        </div>
+                    </div>
+                    <div id="edit" className= "button" onClick={()=>{HandleEvent("updateModalExhibitions")}}> 
+                        <FontAwesomeIcon className="buttonIcon2" icon={faEdit}/>
+                        <div className="buttonName"> 
+                            <p> Modificar </p>
+                        </div>
+                    </div>
+                    <div id="delete" className= "button" onClick={()=>{HandleEvent("deleteModalExhibitions")}}>
+                        <FontAwesomeIcon className="buttonIcon" icon={faTrashAlt}/>
+                        <div className="buttonName"> 
+                            <p> Borrar </p>
+                        </div>
+                    </div>
+                    <div id="read" className= "button" onClick={()=>{HandleEvent("readModalExhibitions")}}>
                         <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
                         <div className="buttonName"> 
                             <p> Consultar </p>

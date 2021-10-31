@@ -497,6 +497,7 @@ padding: 13px;
   padding-bottom: 1em;
   padding-top: 1em;
   justify-content: start;
+  padding-inline-start: 1em;
 }
 
 .titleTableTours{
@@ -506,4 +507,105 @@ padding: 13px;
   display: -webkit-box;
   text-align: justify;
   padding: 13px;
+}
+
+/*Art Work Table*/
+.descriptionTableArtWork{
+  width: 35%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+  margin-right: 1em;
+
+}
+.titleTableArtWork{
+  width: 20%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}
+
+.imageTableArtWork{
+  width: 13%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}
+
+.tableArtWorks tr{
+  width: 100%;
+  display: inline-flex;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: silver;
+  
+  }
+
+.tableArtWorks .labels{
+  border-bottom: solid;
+  border-color: #324D51;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  justify-content: start;
+}
+
+/*Exhibition Table*/
+.descriptionTableExhibitions{
+  width: 35%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+  margin-right: 1em;
+
+}
+.titleTableExhibitions{
+  width: 20%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}
+
+.imageTableExhibitions{
+  width: 18%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}
+
+.typeTableExhibitions{
+  width: 13%;
+  height: 5em;
+  overflow-y: auto;
+  display: -webkit-box;
+  text-align: justify;
+  padding: 13px;
+}
+
+.tableExhibitions tr{
+  width: 100%;
+  display: inline-flex;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: silver;
+  
+  }
+
+.tableExhibitions .labels{
+  border-bottom: solid;
+  border-color: #324D51;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  justify-content: start;
 }

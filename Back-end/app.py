@@ -81,6 +81,54 @@ def post_updateTours():
     update_events(json.loads(request.data))
     return jsonify({"step": "1"})
 
+@app.route('/read_exhibitions', methods=['GET'])
+def read_exhibitions():
+    meta = read_exhibitions()
+    response = jsonify(meta)
+    return response
+
+@app.route('/post_createExhibitions', methods=['POST'])
+def post_createExhibitions():
+    print (json.loads(request.data))
+    insert_exhibitions(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_deleteExhibitions', methods=['POST'])
+def post_deleteExhibitions():
+    print (json.loads(request.data))
+    delete_exhibitions(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_updateExhibitions', methods=['POST'])
+def post_updateExhibitions():
+    print (json.loads(request.data))
+    update_exhibitions(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/read_artwork', methods=['GET'])
+def read_artwork():
+    meta = read_artwork()
+    response = jsonify(meta)
+    return response
+
+@app.route('/post_createArtwork', methods=['POST'])
+def post_createArtwork():
+    print (json.loads(request.data))
+    insertArtwork(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_deleteArtwork', methods=['POST'])
+def post_deleteArtwork():
+    print (json.loads(request.data))
+    deleteArtwork(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_updateArtwork', methods=['POST'])
+def post_updateArtwork():
+    print (json.loads(request.data))
+    updateArtwork(json.loads(request.data))
+    return jsonify({"step": "1"})
+
 
 dbconn = {'database': 'museojadedb',
           'user': 'admin',
@@ -225,5 +273,95 @@ def update_tours(data):
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
 
+def read_exhibitions():
+    sql = """SELECT id, titulo, descripcion, imagen, tipo
+	FROM public.exhibiciones;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    #print(data)
+    return data
+
+def insert_exhibitions(data):
+    sql = """INSERT INTO public.exhibiciones (titulo, descripcion, imagen, tipo)
+            SELECT titulo, descripcion, imagen, tipo
+            FROM json_to_recordset(%s) x (  titulo varchar(100),
+                                            descripcion varchar(1000),
+                                            imagen varchar(500),
+                                            tipo varchar(100) 
+                                          
+            )
+        """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def delete_exhibitions(data):
+    sql = """DELETE FROM public.exhibiciones 
+            WHERE id= (SELECT id FROM json_to_recordset(%s) x (id int)) """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def update_exhibitions(data):
+    sql = """UPDATE public.exhibiciones 
+            SET titulo = subquery.titulo,
+                descripcion = subquery.descripcion,
+                imagen = subquery.imagen,
+                tipo = subquery.tipo
+                
+            FROM (SELECT id, titulo, descripcion, imagen, tipo
+                    FROM json_to_recordset(%s) x (  id int,
+                                                    titulo varchar(100),
+                                                    descripcion varchar(1000),
+                                                    imagen varchar(500), 
+                                                    tipo varchar(100)
+                                                    
+            )) AS subquery
+            WHERE exhibiciones.id = subquery.id"""
+    print(sql)
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def read_artwork():
+    sql = """SELECT id, titulo,descripcion,imagen,id_exhibicion
+ FROM public.obra;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    #print(data)
+    return data
+
+def insertArtwork(data):
+    sql = """INSERT INTO public.obra (titulo,descripcion,imagen,id_exhibicion)
+            SELECT titulo,descripcion,imagen,id_exhibicion)
+            FROM json_to_recordset(%s) x (  titulo varchar(100),
+                                            descripcion varchar(10000),
+                                            imagen varchar(500),
+                                            id_exhibicion int
+            )
+        """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def deleteArtwork(data):
+    sql = """DELETE FROM public.obra 
+            WHERE id= (SELECT id FROM json_to_recordset(%s) x (id int)) """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def updateArtwork(data):
+    sql = """UPDATE public.obra 
+            SET titulo = subquery.titulo,
+                descripcion = subquery.descripcion
+                imagen = subquery.imagen,
+                id_exhibicion = subquery.id_exhibicion                
+            FROM (SELECT id, titulo,descripcion,imagen,id_exhibicion
+                    FROM json_to_recordset(%s) x (  id int,
+                                                    titulo varchar(100),
+                                                    descripcion varchar(10000),
+                                                    imagen varchar(500),
+                                                    id_exhibicion int
+            )) AS subquery
+            WHERE obra.id = subquery.id"""
+    print(sql)
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
 if __name__ == '__main__':
     app.run(host="localhost", port="5000")

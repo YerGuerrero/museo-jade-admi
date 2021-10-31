@@ -56,6 +56,7 @@ const ModalUpdateEvents = () => {
             <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
             <div id= "info" >
                 <h1>Modificar evento</h1>
+                <input type="text" id="eventsID" placeholder="ID del evento a modificar" onInput={(e) => {setIDEvents(e.target.value)}}></input><br></br>
                 <div id="info1">
                   <input type="text" id="eventsName" placeholder="Titulo del evento" onInput={(e) => {setTitleEvents(e.target.value)}}></input><br></br>
                   <input type="text" id="eventsImage" placeholder="Ruta de la imagen" onInput={(e) => {setImageEvents(e.target.value)}}></input><br></br>

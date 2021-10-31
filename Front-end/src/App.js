@@ -14,11 +14,20 @@ import ModalCreateTours from './components/CRUDSTours/modalCreateTours';
 import ModalDeleteTours from './components/CRUDSTours/modalDeleteTours';
 import ModalUpdateTours from './components/CRUDSTours/modalUpdateTours';
 import ModalReadTours from './components/CRUDSTours/modalReadTours';
+import ModalCreateExhibitions from './components/CRUDSExhibitions/modalCreateExhibitions';
+import ModalDeleteExhibitions from './components/CRUDSExhibitions/modalDeleteExhibitions';
+import ModalUpdateExhibitions from './components/CRUDSExhibitions/modalUpdateExhibitions';
+import ModalReadExhibitions from './components/CRUDSExhibitions/modalReadExhibitions';
+import ModalCreateArtwork from './components/CRUDSArtworks/modalCreateArtwork';
+import ModalDeleteArtwork from './components/CRUDSArtworks/modalDeleteArtwork';
+import ModalUpdateArtwork from './components/CRUDSArtworks/modalUpdateArtwork';
+import ModalReadArtwork from './components/CRUDSArtworks/modalReadArtwork';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
 
 
 
@@ -40,6 +49,14 @@ function App() {
                 <ModalDeleteTours/>
                 <ModalUpdateTours/>
                 <ModalReadTours/>
+                <ModalCreateExhibitions/>
+                <ModalDeleteExhibitions/>
+                <ModalUpdateExhibitions/>
+                <ModalReadExhibitions/>
+                <ModalCreateArtwork/>
+                <ModalDeleteArtwork/>
+                <ModalUpdateArtwork/>
+                <ModalReadArtwork/>
                 <HomeAdmin/>
             </Route>
             <Route exact path="/">

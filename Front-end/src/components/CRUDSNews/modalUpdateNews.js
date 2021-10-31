@@ -55,7 +55,7 @@ const ModalUpdateNews = () => {
             <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
             <div id= "info" >
                 <h1>Modificar noticia</h1>
-                <input type="text" id="newsIDDelete" placeholder="ID de la noticia a borrar" onInput={(e) => {setIDNews(e.target.value)}}></input><br></br>
+                <input type="text" id="newsIDDelete" placeholder="ID de la noticia a modificar" onInput={(e) => {setIDNews(e.target.value)}}></input><br></br>
                 
                 <div id="info1">
                   <input type="text" id="newsName" placeholder="Titulo de la noticia" onInput={(e) => {setTitleNews(e.target.value)}}></input><br></br>
