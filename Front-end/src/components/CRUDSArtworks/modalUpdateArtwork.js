@@ -59,8 +59,8 @@ const ModalUpdateArtwork = () => {
                     <input type="text" id="artworkName" placeholder="Titulo de la obra" onInput={(e) => {setTitleArtwork(e.target.value)}}></input><br></br>
                 </div>
                 <div id="info1">
-                      <input type="text" id="artworkImage" placeholder="URL de la imagen" maxLength="10" onInput={(e) => {setImageArtwork(e.target.value)}}></input><br></br>
-                      <input type="text" id="artworkIdExhibition" placeholder="ID de la exhibición" maxLength="10" onInput={(e) => {setIdExhibition(e.target.value)}}></input><br></br>
+                      <input type="text" id="artworkImage" placeholder="URL de la imagen"  onInput={(e) => {setImageArtwork(e.target.value)}}></input><br></br>
+                      <input type="text" id="artworkIdExhibition" placeholder="ID de la exhibición a la que pertenece"  onInput={(e) => {setIdExhibition(e.target.value)}}></input><br></br>
                 </div>
             <textarea type="text" id="artworkDescription" rows="4" cols="50" placeholder="Descripción de la obra" onInput={(e) => {setDescriptionArtwork(e.target.value)}}></textarea><br></br>
             </div> 

@@ -17,19 +17,16 @@ def read_news():
 
 @app.route('/post_createNews', methods=['POST'])
 def post_createNews():
-    print (json.loads(request.data))
     insert_news(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_deleteNews', methods=['POST'])
 def post_deleteNews():
-    print (json.loads(request.data))
     delete_news(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_updateNews', methods=['POST'])
 def post_updateNews():
-    print (json.loads(request.data))
     update_news(json.loads(request.data))
     return jsonify({"step": "1"})
 
@@ -40,20 +37,17 @@ def read_events():
     return response
 
 @app.route('/post_createEvents', methods=['POST'])
-def post_createEvents():
-    print (json.loads(request.data))
+def post_createEvents():  
     insert_events(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_deleteEvents', methods=['POST'])
 def post_deleteEvents():
-    print (json.loads(request.data))
     delete_events(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_updateEvents', methods=['POST'])
 def post_updateEvents():
-    print (json.loads(request.data))
     update_events(json.loads(request.data))
     return jsonify({"step": "1"})
 
@@ -65,20 +59,17 @@ def read_tours():
 
 @app.route('/post_createTours', methods=['POST'])
 def post_createTours():
-    print (json.loads(request.data))
-    insert_events(json.loads(request.data))
+    insert_tours(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_deleteTours', methods=['POST'])
 def post_deleteTours():
-    print (json.loads(request.data))
-    delete_events(json.loads(request.data))
+    delete_tours(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_updateTours', methods=['POST'])
 def post_updateTours():
-    print (json.loads(request.data))
-    update_events(json.loads(request.data))
+    update_tours(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/read_exhibitions', methods=['GET'])
@@ -89,19 +80,16 @@ def read_exhibitions():
 
 @app.route('/post_createExhibitions', methods=['POST'])
 def post_createExhibitions():
-    print (json.loads(request.data))
     insert_exhibitions(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_deleteExhibitions', methods=['POST'])
 def post_deleteExhibitions():
-    print (json.loads(request.data))
     delete_exhibitions(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_updateExhibitions', methods=['POST'])
 def post_updateExhibitions():
-    print (json.loads(request.data))
     update_exhibitions(json.loads(request.data))
     return jsonify({"step": "1"})
 
@@ -113,19 +101,16 @@ def read_artwork():
 
 @app.route('/post_createArtwork', methods=['POST'])
 def post_createArtwork():
-    print (json.loads(request.data))
     insertArtwork(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_deleteArtwork', methods=['POST'])
 def post_deleteArtwork():
-    print (json.loads(request.data))
     deleteArtwork(json.loads(request.data))
     return jsonify({"step": "1"})
 
 @app.route('/post_updateArtwork', methods=['POST'])
 def post_updateArtwork():
-    print (json.loads(request.data))
     updateArtwork(json.loads(request.data))
     return jsonify({"step": "1"})
 
@@ -144,7 +129,6 @@ def read_news():
 	FROM public.noticias;"""
     pg_cur.execute(sql)
     data = pg_cur.fetchall()
-    #print(data)
     return data
 
 def insert_news(data):
@@ -176,7 +160,6 @@ def update_news(data):
                                                     descripcion varchar(10000)
             )) AS subquery
             WHERE noticias.id = subquery.id"""
-    print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
    
@@ -194,7 +177,7 @@ def insert_events(data):
                                           imagen varchar(500), 
                                           fecha varchar(10),
                                           hora varchar(10),
-                                          descripcion varchar(10000),
+                                          descripcion varchar(10000)
                                           
                                           
             )
@@ -225,7 +208,6 @@ def update_events(data):
                                                     
             )) AS subquery
             WHERE eventos.id = subquery.id"""
-    print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
 
@@ -239,10 +221,10 @@ def read_tours():
 def insert_tours(data):
     sql = """INSERT INTO public.tourvirtual (titulo, descripcion, urltour, imagen)
             SELECT titulo, descripcion, urltour, imagen
-            FROM json_to_recordset(%s) x (titulo varchar(200),
-                                          descripcion varchar(500), 
+            FROM json_to_recordset(%s) x (titulo varchar(100),
+                                          descripcion varchar(10000), 
                                           urltour varchar(500),
-                                          imagen varchar(500),
+                                          imagen varchar(100)
             )
         """
     pg_cur.execute(sql, (json.dumps([data]),))
@@ -259,17 +241,16 @@ def update_tours(data):
             SET titulo = subquery.titulo,
                 descripcion = subquery.descripcion,
                 urltour = subquery.urltour,
-                imagen = subquery.imagen,
+                imagen = subquery.imagen
             FROM (SELECT id, titulo, descripcion, urltour, imagen
                     FROM json_to_recordset(%s) x (  id int,
-                                                    titulo varchar(200),
-                                                    descripcion varchar(500), 
+                                                    titulo varchar(100),
+                                                    descripcion varchar(10000), 
                                                     urltour varchar(500),
-                                                    imagen varchar(500),
+                                                    imagen varchar(100)
                                                     
             )) AS subquery
             WHERE tourvirtual.id = subquery.id"""
-    print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
 
@@ -316,7 +297,6 @@ def update_exhibitions(data):
                                                     
             )) AS subquery
             WHERE exhibiciones.id = subquery.id"""
-    print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
 
@@ -325,12 +305,11 @@ def read_artwork():
  FROM public.obra;"""
     pg_cur.execute(sql)
     data = pg_cur.fetchall()
-    #print(data)
     return data
 
 def insertArtwork(data):
     sql = """INSERT INTO public.obra (titulo,descripcion,imagen,id_exhibicion)
-            SELECT titulo,descripcion,imagen,id_exhibicion)
+            SELECT titulo,descripcion,imagen, id_exhibicion
             FROM json_to_recordset(%s) x (  titulo varchar(100),
                                             descripcion varchar(10000),
                                             imagen varchar(500),
@@ -349,7 +328,7 @@ def deleteArtwork(data):
 def updateArtwork(data):
     sql = """UPDATE public.obra 
             SET titulo = subquery.titulo,
-                descripcion = subquery.descripcion
+                descripcion = subquery.descripcion,
                 imagen = subquery.imagen,
                 id_exhibicion = subquery.id_exhibicion                
             FROM (SELECT id, titulo,descripcion,imagen,id_exhibicion
@@ -360,7 +339,6 @@ def updateArtwork(data):
                                                     id_exhibicion int
             )) AS subquery
             WHERE obra.id = subquery.id"""
-    print(sql)
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
 if __name__ == '__main__':

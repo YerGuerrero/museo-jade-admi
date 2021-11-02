@@ -39,7 +39,7 @@ const ModalDeleteArtwork = () => {
         fetch('http://localhost:5000/post_deleteArtwork', requestOptions)
           .then(response => response.json())
         
-        document.dispatchEvent(new CustomEvent("closeDeleteArtwork"))
+        document.dispatchEvent(new CustomEvent("closeDeleteModal"))
       };
 
         

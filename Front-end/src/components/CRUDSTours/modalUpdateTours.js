@@ -57,7 +57,7 @@ const ModalUpdateTours = () => {
             <div id= "info" >
                 <h1>Modificar tour</h1>
                 <div id="info1">
-                    <input type="text" id="toursIDDelete" placeholder="ID del tour a borrar" onInput={(e) => {setIDTours(e.target.value)}}></input><br></br>
+                    <input type="text" id="toursIDDelete" placeholder="ID del tour a modificar" onInput={(e) => {setIDTours(e.target.value)}}></input><br></br>
                     <input type="text" id="toursName" placeholder="Titulo del tour" onInput={(e) => {setTitleTours(e.target.value)}}></input><br></br>
                 </div>
                 <div id="info1">
