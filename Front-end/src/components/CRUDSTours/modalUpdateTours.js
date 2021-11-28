@@ -19,7 +19,12 @@ const ModalUpdateTours = () => {
 
         const callbackClose = (e) => { 
           const modalUpdateTours= document.getElementById("modalUpdateTours");
-          modalUpdateTours.style.visibility="hidden";                    
+          modalUpdateTours.style.visibility="hidden";
+          document.getElementById('toursIDDelete').value = '';
+          document.getElementById('toursName').value = '';
+          document.getElementById('toursImage').value = '';
+          document.getElementById('toursUrl').value = '';  
+          document.getElementById('toursDescription').value = '';                     
         };       
         document.addEventListener('closeUpdateModal', callbackClose);
       })

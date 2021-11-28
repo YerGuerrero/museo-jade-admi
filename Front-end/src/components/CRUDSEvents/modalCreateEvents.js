@@ -19,7 +19,12 @@ const ModalCreateEvents = () => {
 
       const callbackClose = (e) => { 
         const modalCreateEvents= document.getElementById("modalCreateEvents");
-        modalCreateEvents.style.visibility="hidden";                    
+        modalCreateEvents.style.visibility="hidden";
+        document.getElementById('eventsName').value = '';
+        document.getElementById('eventsImage').value = '';
+        document.getElementById('eventsDate').value = '';
+        document.getElementById('eventsHour').value = ''; 
+        document.getElementById('eventsDescription').value = '';                      
       };       
       document.addEventListener('closeCreateModal', callbackClose);
     })

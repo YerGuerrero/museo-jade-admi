@@ -18,7 +18,11 @@ const ModalCreateExhibitions = () => {
 
       const callbackClose = (e) => { 
         const modalCreateExhibitions= document.getElementById("modalCreateExhibitions");
-        modalCreateExhibitions.style.visibility="hidden";                    
+        modalCreateExhibitions.style.visibility="hidden";
+        document.getElementById('ExhibitionsName').value = '';
+        document.getElementById('ExhibitionsImage').value = '';
+        document.getElementById('ExhibitionsType').value = '';
+        document.getElementById('ExhibitionsDescription').value = '';                   
       };       
       document.addEventListener('closeCreateModal', callbackClose);
     })

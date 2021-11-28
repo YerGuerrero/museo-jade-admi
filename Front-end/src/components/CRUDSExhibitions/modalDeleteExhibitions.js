@@ -15,7 +15,8 @@ const ModalDeleteExhibitions = () => {
         
         const callbackClose = (e) => { 
           const modalDeleteExhibitions= document.getElementById("modalDeleteExhibitions");
-          modalDeleteExhibitions.style.visibility="hidden";                    
+          modalDeleteExhibitions.style.visibility="hidden"; 
+          document.getElementById('exhibitionsIDDelete').value = '';                  
         };       
         document.addEventListener('closeDeleteModal', callbackClose);
       })
@@ -46,7 +47,7 @@ const ModalDeleteExhibitions = () => {
     
 
     return (
-        <div id="modalDeleteExhibitions" className="modalContainer">
+        <div id="modalDeleteExhibitions" className="modalContainer" style={{height:"auto"}}>
             <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
             <div id= "info" >
                 <h1>Eliminar exhibición</h1>

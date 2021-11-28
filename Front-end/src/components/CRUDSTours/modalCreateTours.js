@@ -18,7 +18,11 @@ const ModalCreateTours = () => {
 
       const callbackClose = (e) => { 
         const modalCreateTours= document.getElementById("modalCreateTours");
-        modalCreateTours.style.visibility="hidden";                    
+        modalCreateTours.style.visibility="hidden";
+        document.getElementById('toursName').value = '';
+        document.getElementById('toursImage').value = '';
+        document.getElementById('toursUrl').value = '';  
+        document.getElementById('toursDescription').value = '';                   
       };       
       document.addEventListener('closeCreateModal', callbackClose);
     })

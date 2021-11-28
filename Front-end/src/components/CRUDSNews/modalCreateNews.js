@@ -11,7 +11,10 @@ const ModalCreateNews = () => {
     useEffect(()=>{
       const callback = (e) => { 
           const modalCreateNews= document.getElementById("modalCreateNews");
-          modalCreateNews.style.visibility="visible";                    
+          modalCreateNews.style.visibility="visible"; 
+          document.getElementById('newsName').value = '';
+          document.getElementById('newsImage').value = '';
+          document.getElementById('newsDescription').value = '';                   
       };       
       document.addEventListener('createModalNews', callback);
 

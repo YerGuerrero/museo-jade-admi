@@ -15,7 +15,8 @@ const ModalDeleteArtwork = () => {
         
         const callbackClose = (e) => { 
           const modalDeleteArtwork= document.getElementById("modalDeleteArtwork");
-          modalDeleteArtwork.style.visibility="hidden";                    
+          modalDeleteArtwork.style.visibility="hidden"; 
+          document.getElementById('artworkIDDelete').value = '';               
         };       
         document.addEventListener('closeDeleteModal', callbackClose);
       })
@@ -46,7 +47,7 @@ const ModalDeleteArtwork = () => {
     
 
     return (
-        <div id="modalDeleteArtwork" className="modalContainer">
+        <div id="modalDeleteArtwork" className="modalContainer" style={{height:"auto"}}>
             <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
             <div id= "info" >
                 <h1>Eliminar obra</h1>

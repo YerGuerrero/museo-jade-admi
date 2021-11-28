@@ -22,6 +22,12 @@ import ModalCreateArtwork from './components/CRUDSArtworks/modalCreateArtwork';
 import ModalDeleteArtwork from './components/CRUDSArtworks/modalDeleteArtwork';
 import ModalUpdateArtwork from './components/CRUDSArtworks/modalUpdateArtwork';
 import ModalReadArtwork from './components/CRUDSArtworks/modalReadArtwork';
+import ModalCreateServices from './components/CRUDSServices/modalCreateServices';
+import ModalDeleteServices from './components/CRUDSServices/modalDeleteServices';
+import ModalUpdateServices from './components/CRUDSServices/modalUpdateServices';
+import ModalReadServices from './components/CRUDSServices/modalReadServices';
+import ModalReadPurchases from './components/ReadTickets/modalReadPurchases';
+import ModalReadTickets from './components/ReadTickets/modalReadTickets';
 import {
   BrowserRouter as Router,
   Switch,
@@ -57,6 +63,12 @@ function App() {
                 <ModalDeleteArtwork/>
                 <ModalUpdateArtwork/>
                 <ModalReadArtwork/>
+                <ModalReadServices/>
+                <ModalCreateServices/>
+                <ModalDeleteServices/>
+                <ModalUpdateServices/>
+                <ModalReadPurchases/>
+                <ModalReadTickets/>
                 <HomeAdmin/>
             </Route>
             <Route exact path="/">

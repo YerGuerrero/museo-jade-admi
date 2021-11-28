@@ -9,7 +9,9 @@ const ModalDeleteTours = () => {
       useEffect(()=>{
         const callback = (e) => { 
             const modalDeleteTours= document.getElementById("modalDeleteTours");
-            modalDeleteTours.style.visibility="visible";                    
+            modalDeleteTours.style.visibility="visible"; 
+            document.getElementById('toursIDDelete').value = '';
+                              
         };       
         document.addEventListener('deleteModalTours', callback);
         
@@ -46,7 +48,7 @@ const ModalDeleteTours = () => {
     
 
     return (
-        <div id="modalDeleteTours" className="modalContainer">
+        <div id="modalDeleteTours" className="modalContainer" style={{height:"auto"}}>
             <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
             <div id= "info" >
                 <h1>Eliminar Tour</h1>

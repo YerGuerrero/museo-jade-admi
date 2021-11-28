@@ -115,14 +115,67 @@ def post_updateArtwork():
     return jsonify({"step": "1"})
 
 
-dbconn = {'database': 'museojadedb',
-          'user': 'admin',
+@app.route('/read_services', methods=['GET'])
+def read_services():
+    meta = read_services()
+    response = jsonify(meta)
+    return response
+
+@app.route('/post_createServices', methods=['POST'])
+def post_createServices():
+    insertService(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_deleteServices', methods=['POST'])
+def post_deleteServices():
+    deleteService(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/post_updateServices', methods=['POST'])
+def post_updateServices():
+    updateService(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+@app.route('/read_purchases', methods=['GET'])
+def read_purchases():
+    meta = read_purchases()
+    response = jsonify(meta)
+    return response
+
+@app.route('/read_tickets', methods=['GET'])
+def read_tickets():
+    meta = read_tickets()
+    response = jsonify(meta)
+    return response
+
+@app.route('/post_login', methods=['POST'])
+def post_login():
+    dataBD(json.loads(request.data))
+    return jsonify({"step": "1"})
+
+
+pg_conn=None
+pg_cur=None
+def dataBD(data):
+    user= data["user"]
+    password= data["password"] 
+    dbconn = {'database': 'museojadedb',
+          'user': user,
           'port': '5432',
           'host':'localhost',
-          'password':'museoJadeAdmin'}
+          'password':password}
+    global pg_conn, pg_cur;
+    pg_conn = psycopg2.connect(**dbconn)
+    pg_cur = pg_conn.cursor()
+    return dbconn;
+  
+   
 
-pg_conn = psycopg2.connect(**dbconn)
-pg_cur = pg_conn.cursor()
+#user='admin'
+#password='museoJadeAdmin'
+
+
+
 
 def read_news():
     sql = """SELECT id, titulo, imagen, descripcion
@@ -341,5 +394,62 @@ def updateArtwork(data):
             WHERE obra.id = subquery.id"""
     pg_cur.execute(sql, (json.dumps([data]),))
     pg_conn.commit()
+
+def read_services():
+    sql = """SELECT id, titulo, tipo, imagen
+                FROM public.servicios;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    return data
+
+def insertService(data):
+    sql = """INSERT INTO public.servicios (titulo,tipo,imagen)
+            SELECT titulo,tipo,imagen
+            FROM json_to_recordset(%s) x (  titulo varchar(100),
+                                            tipo varchar(100),
+                                            imagen varchar(500)
+                                            
+            )
+        """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+
+def deleteService(data):
+    sql = """DELETE FROM public.servicios 
+            WHERE id= (SELECT id FROM json_to_recordset(%s) x (id int)) """
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def updateService(data):
+    sql = """UPDATE public.servicios 
+            SET titulo = subquery.titulo,
+                tipo = subquery.tipo,
+                imagen = subquery.imagen               
+            FROM (SELECT id, titulo,tipo,imagen
+                    FROM json_to_recordset(%s) x (  id int,
+                                                    titulo varchar(100),
+                                                    tipo varchar(100),
+                                                    imagen varchar(500)
+                                                    
+            )) AS subquery
+            WHERE servicios.id = subquery.id"""
+    pg_cur.execute(sql, (json.dumps([data]),))
+    pg_conn.commit()
+
+def read_purchases():
+    sql = """SELECT id, nombre_comprador, numero_telefono, correo, fecha_visita, numero_entradas, total, fecha_compra
+            FROM public.compras;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    return data
+
+def read_tickets():
+    sql = """SELECT id, tipo, precio, id_compra
+            FROM public.entradas;"""
+    pg_cur.execute(sql)
+    data = pg_cur.fetchall()
+    return data
+
 if __name__ == '__main__':
     app.run(host="localhost", port="5000")

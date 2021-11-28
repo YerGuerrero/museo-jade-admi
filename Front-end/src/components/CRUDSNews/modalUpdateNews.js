@@ -18,7 +18,11 @@ const ModalUpdateNews = () => {
 
         const callbackClose = (e) => { 
           const modalUpdateNews= document.getElementById("modalUpdateNews");
-          modalUpdateNews.style.visibility="hidden";                    
+          modalUpdateNews.style.visibility="hidden";
+          document.getElementById('newsIDDelete').value = '';
+          document.getElementById('newsName').value = '';
+          document.getElementById('newsImage').value = '';
+          document.getElementById('newsDescription').value = '';                     
         };       
         document.addEventListener('closeUpdateModal', callbackClose);
       })

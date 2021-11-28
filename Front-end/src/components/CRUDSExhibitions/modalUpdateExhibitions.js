@@ -19,7 +19,12 @@ const ModalUpdateExhibitions = () => {
 
         const callbackClose = (e) => { 
           const modalUpdateExhibitions= document.getElementById("modalUpdateExhibitions");
-          modalUpdateExhibitions.style.visibility="hidden";                    
+          modalUpdateExhibitions.style.visibility="hidden";
+          document.getElementById('exhibitionsIDDelete').value = '';
+          document.getElementById('exhibitionsName').value = '';
+          document.getElementById('exhibitionsImage').value = '';
+          document.getElementById('ExhibitionsType').value = '';
+          document.getElementById('exhibitionsDescription').value = '';                     
         };       
         document.addEventListener('closeUpdateModal', callbackClose);
       })

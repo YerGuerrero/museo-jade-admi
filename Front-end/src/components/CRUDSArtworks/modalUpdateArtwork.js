@@ -19,7 +19,12 @@ const ModalUpdateArtwork = () => {
 
         const callbackClose = (e) => { 
           const modalUpdateArtwork= document.getElementById("modalUpdateArtwork");
-          modalUpdateArtwork.style.visibility="hidden";                    
+          modalUpdateArtwork.style.visibility="hidden";
+          document.getElementById('artworkID').value = '';
+          document.getElementById('artworkName').value = '';
+          document.getElementById('artworkImage').value = '';
+          document.getElementById('artworkIdExhibition').value = '';
+          document.getElementById('artworkDescription').value = '';   
         };       
         document.addEventListener('closeUpdateModal', callbackClose);
       })

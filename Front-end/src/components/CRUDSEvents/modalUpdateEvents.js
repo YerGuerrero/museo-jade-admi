@@ -20,7 +20,13 @@ const ModalUpdateEvents = () => {
 
         const callbackClose = (e) => { 
           const modalUpdateEvents= document.getElementById("modalUpdateEvents");
-          modalUpdateEvents.style.visibility="hidden";                    
+          modalUpdateEvents.style.visibility="hidden";
+          document.getElementById('eventsID').value = '';
+          document.getElementById('eventsName').value = '';
+          document.getElementById('eventsImage').value = '';
+          document.getElementById('eventsDate').value = '';
+          document.getElementById('eventsHour').value = ''; 
+          document.getElementById('eventsDescription').value = '';                    
         };       
         document.addEventListener('closeUpdateModal', callbackClose);
       })
