@@ -16,7 +16,6 @@ const TableNews= (props)=>{
                 <tbody>
                 {props.news!== null?
                     props.news.data.map(news=>{
-                    console.log(news)
                         return(
                                 <tr
                                 key={news.id}

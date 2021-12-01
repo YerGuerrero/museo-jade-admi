@@ -142,11 +142,6 @@ def read_purchases():
     response = jsonify(meta)
     return response
 
-@app.route('/read_tickets', methods=['GET'])
-def read_tickets():
-    meta = read_tickets()
-    response = jsonify(meta)
-    return response
 
 @app.route('/post_login', methods=['POST'])
 def post_login():
@@ -444,12 +439,6 @@ def read_purchases():
     data = pg_cur.fetchall()
     return data
 
-def read_tickets():
-    sql = """SELECT id, tipo, precio, id_compra
-            FROM public.entradas;"""
-    pg_cur.execute(sql)
-    data = pg_cur.fetchall()
-    return data
 
 if __name__ == '__main__':
     app.run(host="localhost", port="5000")

@@ -17,7 +17,6 @@ const TableTours= (props)=>{
                 <tbody>
                 {props.tours!== null?
                     props.tours.data.map(tour=>{
-                    console.log(tour)
                         return(
                                 <tr
                                 key={tour.id}

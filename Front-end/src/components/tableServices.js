@@ -16,7 +16,6 @@ const TableServices= (props)=>{
                 <tbody>
                 {props.services!== null?
                     props.services.data.map(service=>{
-                    console.log(service)
                         return(
                                 <tr
                                 key={service.id}

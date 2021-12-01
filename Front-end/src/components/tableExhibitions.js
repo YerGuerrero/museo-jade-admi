@@ -19,7 +19,6 @@ const TableExhibitions= (props)=>{
                 <tbody>
                 {props.exhibitions!== null?
                     props.exhibitions.data.map(exhibition=>{
-                    console.log(exhibition)
                         return(
                                 <tr
                                 key={exhibition.id}

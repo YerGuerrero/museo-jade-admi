@@ -51,7 +51,7 @@ const ModalCreateServices = () => {
         };
 
   return (
-      <div id="modalCreateServices" className="modalContainer">
+      <div id="modalCreateServices" className="modalContainer" style={{height:'auto'}}>
           <button id ="btnClose" className="btnClose" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
           <div id= "info" >
               <h1>Añadir servicio</h1>

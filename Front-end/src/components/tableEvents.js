@@ -19,7 +19,6 @@ const TableEvents= (props)=>{
                 <tbody>
                 {props.events!== null?
                     props.events.data.map(event=>{
-                    console.log(event)
                         return(
                                 <tr
                                 key={event.id}

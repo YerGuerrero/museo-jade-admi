@@ -19,7 +19,6 @@ const TablePurchases= (props)=>{
                 <tbody>
                 {props.purchases!== null?
                     props.purchases.data.map(purchase=>{
-                    console.log(purchase)
                         return(
                                 <tr
                                 key={purchase.id}

@@ -17,7 +17,6 @@ const TableArtWorks= (props)=>{
                 <tbody>
                 {props.artworks!== null?
                     props.artworks.data.map(artwork=>{
-                    console.log(artwork)
                         return(
                                 <tr key={artwork.id} className="">
                                     <td className="idTable">{artwork.id}</td>

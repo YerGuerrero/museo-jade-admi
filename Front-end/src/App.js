@@ -27,7 +27,6 @@ import ModalDeleteServices from './components/CRUDSServices/modalDeleteServices'
 import ModalUpdateServices from './components/CRUDSServices/modalUpdateServices';
 import ModalReadServices from './components/CRUDSServices/modalReadServices';
 import ModalReadPurchases from './components/ReadTickets/modalReadPurchases';
-import ModalReadTickets from './components/ReadTickets/modalReadTickets';
 import {
   BrowserRouter as Router,
   Switch,
@@ -68,7 +67,6 @@ function App() {
                 <ModalDeleteServices/>
                 <ModalUpdateServices/>
                 <ModalReadPurchases/>
-                <ModalReadTickets/>
                 <HomeAdmin/>
             </Route>
             <Route exact path="/">

@@ -212,12 +212,6 @@ const HomeAdmin = () => {
                             <p> Consultar Compras</p>
                         </div>
                     </div>
-                    <div id="read-tickets" className= "button" onClick={()=>{HandleEvent("readModalTickets")}}>
-                        <FontAwesomeIcon className="buttonIcon" icon={faSearch}/>
-                        <div className="buttonName" style={{lineHeight: "1em"}}> 
-                            <p> Consultar Entradas</p>
-                        </div>
-                    </div>
                 </div>
             </div>
             
