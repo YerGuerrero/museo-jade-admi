@@ -9,7 +9,7 @@ const Login = () => {
     const handleClickLogin = () => {
         try {
             login();
-            if(user=== "admin" && password=== "museoJadeAdmin"){
+            if(user=== "userAdmin@museojade2021" && password=== "MuseoJade2021"){
                 history.push("/home");
             }
         } catch (error) {
@@ -21,6 +21,7 @@ const Login = () => {
     };
 
     const login = () => {
+        console.log(user, password);
         const requestOptions = {
           method: 'POST',
           header: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:5000/post_data', 'Accept': 'application/json' },

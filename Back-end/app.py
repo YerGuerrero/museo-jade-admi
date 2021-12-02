@@ -154,21 +154,22 @@ pg_cur=None
 def dataBD(data):
     user= data["user"]
     password= data["password"] 
-    dbconn = {'database': 'museojadedb',
-          'user': user,
-          'port': '5432',
-          'host':'localhost',
-          'password':password}
+    host="museojade2021.postgres.database.azure.com"
+    dbname="museojadedb"
+    sslmode="require"
+
+    conn_string= "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host,user,dbname,password,sslmode)
     global pg_conn, pg_cur;
-    pg_conn = psycopg2.connect(**dbconn)
+    pg_conn = psycopg2.connect(conn_string)
     pg_cur = pg_conn.cursor()
-    return dbconn;
+    return conn_string;
   
    
 
 #user='admin'
 #password='museoJadeAdmin'
-
+#user="userAdmin@museojade2021"
+#password="MuseoJade2021"
 
 
 
